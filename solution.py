@@ -12,8 +12,6 @@ def solution(p: float, x: np.array) -> tuple:
     # Не меняйте название функции и её аргументы
     alpha1 = (1 - p) / 2
     alpha2 = (1 + p) / 2
-    n = x.size
-    a1, a2 = pow(alpha1, 1 / n), pow(alpha2, 1 / n)
-
-    x_max = x.max()
-    return (x_max - 0.071) / a2 + 0.071, (x_max - 0.071) / a1 + 0.071
+    n = len(x)
+    x_1 = x.max() - 0.071
+    return x_1 / alpha2 ** (1 / n) + 0.071, х_1 / alpha1 ** (1 / n) + 0.071
