@@ -10,9 +10,10 @@ def solution(p: float, x: np.array) -> tuple:
     # Измените код этой функции
     # Это будет вашим решением
     # Не меняйте название функции и её аргументы
-    alpha = 1 - p
-    a = 0.071
-    
-    mx = 2 * max(x) - a
-    return mx, \
-           mx / (alpha ** (1/len(x)))
+    alpha1 = (1 - p) / 2
+    alpha2 = (1 + p) / 2
+    n = x.size
+    a1, a2 = pow(alpha1, 1 / n), pow(alpha2, 1 / n)
+
+    x_max = x.max()
+    return (x_max - 0.071) / a2 + 0.071, (x_max - 0.071) / a1 + 0.071
